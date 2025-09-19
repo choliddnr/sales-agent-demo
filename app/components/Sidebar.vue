@@ -31,6 +31,10 @@ const saveDoc = async (obj: {
 
 const loadAndStoreDocs = async () => {
   const products = await $fetch<object[]>("/api/products");
+
+  const store = getObjectStore("readwrite");
+  store.clear();
+
   products.forEach(async (_p) => {
     const id = uuidv4();
     const p = { id, ..._p };
@@ -72,12 +76,14 @@ const loadAndStoreDocs = async () => {
         </svg>
       </button>
     </div>
-    <!-- <button
+    <button
+      role="button"
+      type="button"
       class="bg-blue-800 text-gray-200 mx-2 rounded-2xl px-5 py-3 mb-5"
       @click="loadAndStoreDocs"
     >
       Load and store Product
-    </button> -->
+    </button>
     <Product />
   </div>
 </template>
