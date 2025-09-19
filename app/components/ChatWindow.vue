@@ -22,6 +22,9 @@ const handleSendMessage = async (message: string) => {
   if (aiCustomerAgent.value) {
     while (loop.value) {
       const res = await agent(contents.value);
+
+      performActionAfterRandomDelay();
+
       contents.value.push({ role: "model", parts: [{ text: res ?? "" }] });
       const custRes = JSON.parse(
         await $fetch("/api/customer", {
@@ -34,6 +37,7 @@ const handleSendMessage = async (message: string) => {
 
       contents.value.push({ role: "user", parts: [{ text: custRes.answer }] });
       if (custRes.stopConv || !aiCustomerAgent.value) loop.value = false;
+      performActionAfterRandomDelay();
       // console.log("customerContents", customerContents.value);
     }
   } else {

@@ -67,3 +67,15 @@ export const getData = async (key: string): Promise<StoredProduct> => {
     };
   });
 };
+
+export const performActionAfterRandomDelay = (): void => {
+  const minDelayMs = 5000; // 1 second
+  const maxDelayMs = 10000; // 5 seconds
+  const randomDelayMs = Math.random() * (maxDelayMs - minDelayMs) + minDelayMs;
+
+  console.log(`Waiting for ${randomDelayMs.toFixed(2)} milliseconds...`);
+
+  setTimeout(() => {
+    console.log("Action performed after random delay!");
+  }, randomDelayMs);
+};
