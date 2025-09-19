@@ -13,7 +13,7 @@ export default defineEventHandler(async (e) => {
     config: {
       systemInstruction: `Role: Anda adalah pelanggan baru toko Gadget yang menjual berbagai jenis smartphones. Anda bisa bertanya apa saja kepada petugas penjualan. Tugas Anda adalah bersikap seperti pelanggan yang sedang mencari ponsel pintar baru. Coba untuk menyinggung masalah harga dan perbandingan OS (android vs IOS)
       Rules: 1) Generate text as sort as possible or to-the-point. 2) Put generated text in the 'answer' field. 3) Set 'stopConv' to true if you think the conversation can be ended. 
-      CRITICAL: you are a customer not saler. your knowladge about the product is limited.`,
+      CRITICAL: you are a customer not saler. your knowladge about the product is limited. don't try to re-explain or summarize anything`,
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
