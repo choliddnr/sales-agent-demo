@@ -16,4 +16,8 @@ export default defineNuxtConfig({
     geminiApiKey: import.meta.env.NUXT_GEMINI_API_KEY || "",
     mcpEndpoint: import.meta.env.NUXT_MCP_ENDPOINT,
   },
+  // ssr: false, // disable SSR
+  nitro: {
+    preset: "cloudflare-pages",
+  },
 });
